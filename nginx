@@ -2,27 +2,27 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: eks-example
-  namespace: eks-example
+  name: nginx
+  namespace: default
   labels:
-    app: eks-example
+    app: nginx
   annotations:
     # Container Image Automated Updates
     flux.weave.works/automated: "true"
     # do not apply this manifest on the cluster
-    #flux.weave.works/ignore: "true"
+    #flux.weave.works/ignore: "false"
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: eks-example
+      app: nginx
   template:
     metadata:
       labels:
-        app: eks-example
+        app: nginx
     spec:
       containers:
-      - name: eks-example
+      - name: nginx
         image: nginx:latest
         imagePullPolicy: IfNotPresent
         
