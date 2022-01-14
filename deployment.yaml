@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 648064107398.dkr.ecr.us-west-2.amazonaws.com/bank-frontend:159695f
+        image: 648064107398.dkr.ecr.us-west-2.amazonaws.com/bank-frontend:ed706c5
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
