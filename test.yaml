@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-pipeline
+  namespace: default
+  labels:
+    app: web	
+  annotations:
+    # Container Image Automated Updates
+    flux.weave.works/automated: "true"
+    # do not apply this manifest on the cluster
+    flux.weave.works/ignore: "false"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-pipeline
+  template:
+    metadata:
+      labels:
+        app: test-pipeline
+    spec:
+      containers:
+      - name: web
+        image: nginx:latest
+        imagePullPolicy: IfNotPresent
+        
