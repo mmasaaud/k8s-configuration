@@ -5,7 +5,7 @@ metadata:
   name: web
   namespace: default
   labels:
-    app: web	
+    app: web1
   annotations:
     # Container Image Automated Updates
     flux.weave.works/automated: "true"
