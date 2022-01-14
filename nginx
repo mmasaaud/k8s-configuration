@@ -1,15 +1,28 @@
 ---
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  creationTimestamp: null
+  name: eks-example
+  namespace: eks-example
   labels:
-    run: nginx
-  name: nginx
+    app: eks-example
+  annotations:
+    # Container Image Automated Updates
+    flux.weave.works/automated: "true"
+    # do not apply this manifest on the cluster
+    #flux.weave.works/ignore: "true"
 spec:
-  containers:
-  - image: nginx
-    name: nginx
-    resources: {}
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eks-example
+  template:
+    metadata:
+      labels:
+        app: eks-example
+    spec:
+      containers:
+      - name: eks-example
+        image: nginx:latest
+        imagePullPolicy: IfNotPresent
+        
