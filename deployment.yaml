@@ -29,11 +29,3 @@ spec:
         - containerPort: 3000
           name: http
           protocol: TCP
-        livenessProbe:
-          httpGet:
-            path: /
-            port: http
-        readinessProbe:
-          httpGet:
-            path: /
-            port: http
