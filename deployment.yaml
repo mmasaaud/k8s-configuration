@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: 648064107398.dkr.ecr.us-west-2.amazonaws.com/bank-frontend:6501b32
+        image: 648064107398.dkr.ecr.us-west-2.amazonaws.com/bank-frontend:f3149bd
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3000
